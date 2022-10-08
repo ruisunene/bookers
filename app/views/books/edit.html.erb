@@ -12,13 +12,13 @@
     <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
 
       <div class="field">
-      <label for="book_title">Title</label>
-      <div><%= f.text_field :title %></div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
       </div>
 
       <div class="field">
-      <label for="book_body">Body</label>
-      <div><%= f.text_area :body %></div>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
       </div>
 
       <div class="actions"><%= f.submit 'Update Book'%></div>
