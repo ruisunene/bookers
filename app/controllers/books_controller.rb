@@ -2,21 +2,20 @@ class BooksController < ApplicationController
 
 
   def create
-   @book = Book.new(book_params)
-    if @book.save
-      flash[:notice] = "Book was successfully created."
+  @book = Book.new(book_params)
+  if @book.save
+  flash[:notice] = "Book was successfully created."
   #詳細画面へリダイレクトするコード↓
-      redirect_to book_path(@book.id)
-    else
-      @books = Book.all
-      render :index
-    end
+  redirect_to book_path(@book.id)
+  else
+  @books = Book.all
+  render :index
   end
+end
 
   def index
     @book = Book.new
     @books = Book.all
-
   end
 
   def show
@@ -32,12 +31,12 @@ class BooksController < ApplicationController
     if @book.update(book_params)
     flash[:notice] = "Book was successfully updated."
     redirect_to book_path(@book.id)
-  else
-      @books = Book.all
-      render :edit
-  end
-end
+    else
+    @books = Book.all
+    render :edit
 
+    end
+  end
 
   def destroy
     book = Book.find(params[:id])
